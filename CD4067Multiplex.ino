@@ -1,5 +1,5 @@
-//8 channels cd4067 Library Free changes by: S.R.Marashi   srmarashi@yahoo.com
-// Here is pinout for HW-529 CD4051 MultiPlexer Digital To analog
+//16 channels cd4067 Library Free changes by: S.R.Marashi   srmarashi@yahoo.com
+// Here is pinout for 16-Channel-Multiplexer CD4067 MultiPlexer Digital To analog
 // S0 --> Arduino Digital 3
 // S1 --> Arduino Digital 4
 // S2 --> Arduino Digital 5
@@ -8,7 +8,7 @@
 // Z --> Arduino analog A0
 // VEE/GND --> Arduino GND (Connect Both of them to GND)
 // VCC --> Arduino +5V
-// Y0 to Y7 --> Analog Extended Pins
+// Y0 to Y15 --> Analog Extended Pins
 
 const byte ENPIN = 2; //Enable pin
 const byte APIN = 3; //S0
@@ -43,15 +43,14 @@ void setup() {
 void loop()
 {
 
-  // for example pin0 and pin7 will read continusely and will print out analog Result Valuue
+  // for example pin0 and pin15 will read continusely and will print out analog Result Valuue
   Serial.println(CycleRecall(15));
-   Serial.println(CycleRecall(9));
-  Serial.println(CycleRecall(0));
+  Serial.println("----------");
   delay(100);
 }
 
 
-// reading function for the CD4051B
+// reading function for the CD4067B
 int CycleRecall(byte channel) {
 
   digitalWrite(APIN, bitRead(channel, 0));
